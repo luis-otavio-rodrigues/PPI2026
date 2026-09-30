@@ -34,7 +34,7 @@ body{font-family:'Plus Jakarta Sans',system-ui,sans-serif;background:var(--bg-1)
 /* ============ LOGIN ============ */
 .tela-login{position:fixed;inset:0;display:grid;place-items:center;padding:1rem;z-index:100;background:var(--bg-1);transition:opacity .4s,visibility .4s;overflow-y:auto}
 .tela-login.saindo{opacity:0;visibility:hidden}
-.login-card{background:var(--card);border-radius:24px;padding:2.5rem;box-shadow:var(--sombra-forte);border:1px solid var(--borda);width:100%;max-width:440px;animation:entrar .45s cubic-bezier(.34,1.56,.64,1);margin:auto}
+.login-card{background:var(--card);border-radius:24px;padding:2.5rem;box-shadow:var(--sombra-forte);border:1px solid var(--borda);width:100%;max-width:500px;animation:entrar .45s cubic-bezier(.34,1.56,.64,1);margin:auto}
 @keyframes entrar{from{opacity:0;transform:translateY(24px) scale(.96)}to{opacity:1;transform:translateY(0) scale(1)}}
 .login-logo{width:68px;height:68px;border-radius:20px;background:var(--grad-sol);display:grid;place-items:center;margin:0 auto 1.25rem;box-shadow:0 12px 32px rgba(255,159,28,.45);color:#1A1A2E}
 .login-logo svg{width:36px;height:36px}
@@ -82,8 +82,16 @@ input:focus,select:focus,textarea:focus{outline:none;border-color:var(--sol-2);b
 .abas{display:flex;gap:.4rem;background:var(--card-2);padding:.35rem;border-radius:14px;margin-bottom:1.5rem;border:1px solid var(--borda)}
 .aba{flex:1;padding:.65rem;border-radius:10px;border:none;background:transparent;font-family:inherit;font-size:.85rem;font-weight:600;color:var(--texto-suave);cursor:pointer;transition:all .2s}
 .aba.ativa{background:var(--card);color:var(--texto);box-shadow:var(--sombra)}
-.hint{font-size:.75rem;color:var(--texto-suave);margin-top:.4rem;line-height:1.4}
 .escondido{display:none!important}
+
+/* Fototipo no cadastro */
+.fototipo-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:.5rem;margin-top:.5rem}
+.fototipo-opcao{cursor:pointer;border-radius:10px;padding:.55rem .25rem;text-align:center;border:2px solid var(--borda);background:var(--card-2);transition:all .2s;font-size:.65rem;font-weight:600;color:var(--texto-suave);font-family:inherit}
+.fototipo-opcao .cor{display:block;width:24px;height:24px;border-radius:50%;margin:0 auto .3rem;border:2px solid rgba(0,0,0,.1);box-shadow:0 2px 8px rgba(0,0,0,.15)}
+.fototipo-opcao:hover{transform:translateY(-2px)}
+.fototipo-opcao.sel{border-color:var(--sol-2);background:linear-gradient(135deg,#FFF3D6,#FFE4B5);color:#1A1A2E;box-shadow:0 6px 16px rgba(255,159,28,.3)}
+[data-tema="escuro"] .fototipo-opcao.sel{background:linear-gradient(135deg,#4A3A10,#5C4814);color:#FFD93D}
+@media(max-width:600px){.fototipo-grid{grid-template-columns:repeat(3,1fr)}}
 
 /* ============ APP ============ */
 .app{display:grid;grid-template-columns:260px 1fr;min-height:100vh}
@@ -113,7 +121,7 @@ input:focus,select:focus,textarea:focus{outline:none;border-color:var(--sol-2);b
 .btn-icone{width:40px;height:40px;border-radius:10px;border:1px solid var(--borda);background:var(--card);color:var(--texto);cursor:pointer;display:grid;place-items:center;transition:all .2s}
 .btn-icone svg{width:18px;height:18px;stroke-width:2}
 .btn-icone:hover{background:var(--card-2);transform:translateY(-1px)}
-.usuario-chip{display:flex;align-items:center;gap:.6rem;padding:.35rem .8rem .35rem .35rem;border-radius:30px;background:var(--card-2);border:1px solid var(--borda);cursor:pointer}
+.usuario-chip{display:flex;align-items:center;gap:.6rem;padding:.35rem .8rem .35rem .35rem;border-radius:30px;background:var(--card-2);border:1px solid var(--borda)}
 .usuario-avatar{width:32px;height:32px;border-radius:50%;display:grid;place-items:center;color:#fff;font-weight:800;font-size:.85rem}
 .avatar-user{background:var(--grad-ceu)}
 .avatar-admin{background:linear-gradient(135deg,#7209B7,#3A0CA3)}
@@ -199,13 +207,6 @@ input[type=range]{-webkit-appearance:none;appearance:none;height:10px;border-rad
 input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:24px;height:24px;border-radius:50%;background:#fff;border:3px solid var(--sol-2);cursor:pointer;box-shadow:0 4px 12px rgba(0,0,0,.2)}
 input[type=range]::-moz-range-thumb{width:24px;height:24px;border-radius:50%;background:#fff;border:3px solid var(--sol-2);cursor:pointer}
 
-.fototipo-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:.5rem;margin-top:.5rem}
-.fototipo-opcao{cursor:pointer;border-radius:10px;padding:.55rem .25rem;text-align:center;border:2px solid var(--borda);background:var(--card-2);transition:all .2s;font-size:.65rem;font-weight:600;color:var(--texto-suave);font-family:inherit}
-.fototipo-opcao .cor{display:block;width:24px;height:24px;border-radius:50%;margin:0 auto .3rem;border:2px solid rgba(0,0,0,.1);box-shadow:0 2px 8px rgba(0,0,0,.15)}
-.fototipo-opcao:hover{transform:translateY(-2px)}
-.fototipo-opcao.sel{border-color:var(--sol-2);background:linear-gradient(135deg,#FFF3D6,#FFE4B5);color:#1A1A2E;box-shadow:0 6px 16px rgba(255,159,28,.3)}
-[data-tema="escuro"] .fototipo-opcao.sel{background:linear-gradient(135deg,#4A3A10,#5C4814);color:#FFD93D}
-
 /* UV Medidor */
 .uv-medidor{position:relative;width:100%;max-width:340px;margin:0 auto;aspect-ratio:2/1;overflow:hidden}
 .uv-arco{position:absolute;inset:0;border-radius:340px 340px 0 0;background:conic-gradient(from -90deg at 50% 100%,#06D6A0 0deg,#A8E063 30deg,#FFD93D 60deg,#FF9F1C 90deg,#FF6B35 120deg,#EF476F 150deg,#B5179E 180deg);-webkit-mask:radial-gradient(circle at 50% 100%,transparent 55%,#000 56%);mask:radial-gradient(circle at 50% 100%,transparent 55%,#000 56%)}
@@ -254,7 +255,7 @@ input[type=range]::-moz-range-thumb{width:24px;height:24px;border-radius:50%;bac
 .local-box .pais .bandeira{font-size:1.1rem}
 .local-box .coords{font-size:.72rem;color:var(--texto-suave);margin-top:.6rem;letter-spacing:.5px;font-variant-numeric:tabular-nums}
 
-@media(max-width:600px){.fototipo-grid{grid-template-columns:repeat(3,1fr)}.page-header h1{font-size:1.4rem}}
+@media(max-width:600px){.page-header h1{font-size:1.4rem}}
 
 .loader{display:inline-block;width:18px;height:18px;border:3px solid rgba(255,255,255,.3);border-top-color:#fff;border-radius:50%;animation:spin 1s linear infinite}
 @keyframes spin{to{transform:rotate(360deg)}}
@@ -304,6 +305,7 @@ input[type=range]::-moz-range-thumb{width:24px;height:24px;border-radius:50%;bac
       <button class="aba" id="abaRegistrar">Criar conta</button>
     </div>
 
+    <!-- Form Entrar -->
     <form id="formEntrar" autocomplete="off">
       <div class="campo">
         <label for="loginEmail">E-mail</label>
@@ -324,6 +326,7 @@ input[type=range]::-moz-range-thumb{width:24px;height:24px;border-radius:50%;bac
       </button>
     </form>
 
+    <!-- Form Registrar com todos os dados do perfil -->
     <form id="formRegistrar" class="escondido" autocomplete="off">
       <div class="campo">
         <label for="regNome">Nome completo</label>
@@ -332,6 +335,33 @@ input[type=range]::-moz-range-thumb{width:24px;height:24px;border-radius:50%;bac
       <div class="campo">
         <label for="regEmail">E-mail</label>
         <input type="email" id="regEmail" placeholder="seu@email.com" autocomplete="email" required />
+      </div>
+      <div class="campo">
+        <label for="regIdade">Idade</label>
+        <input type="number" id="regIdade" placeholder="Ex.: 30" min="1" max="120" required />
+      </div>
+      <div class="campo">
+        <label for="regCidade">Cidade</label>
+        <input type="text" id="regCidade" placeholder="Ex.: São Paulo, SP" required />
+      </div>
+      <div class="campo">
+        <label for="regSensibilidade">Sensibilidade solar</label>
+        <select id="regSensibilidade" required>
+          <option value="alta">Alta</option>
+          <option value="media" selected>Média</option>
+          <option value="baixa">Baixa</option>
+        </select>
+      </div>
+      <div class="campo">
+        <label>Fototipo de pele (escala de Fitzpatrick)</label>
+        <div class="fototipo-grid" id="fototipoGridReg">
+          <button type="button" class="fototipo-opcao" data-ft="1"><span class="cor" style="background:#FDE7D3"></span>I<br>Muito clara</button>
+          <button type="button" class="fototipo-opcao" data-ft="2"><span class="cor" style="background:#F5D0AE"></span>II<br>Clara</button>
+          <button type="button" class="fototipo-opcao sel" data-ft="3"><span class="cor" style="background:#E8B98C"></span>III<br>Média</button>
+          <button type="button" class="fototipo-opcao" data-ft="4"><span class="cor" style="background:#C68B59"></span>IV<br>Morena clara</button>
+          <button type="button" class="fototipo-opcao" data-ft="5"><span class="cor" style="background:#8B5A2B"></span>V<br>Morena escura</button>
+          <button type="button" class="fototipo-opcao" data-ft="6"><span class="cor" style="background:#4A2C17"></span>VI<br>Negra</button>
+        </div>
       </div>
       <div class="campo">
         <label for="regSenha">Senha</label>
@@ -366,7 +396,6 @@ input[type=range]::-moz-range-thumb{width:24px;height:24px;border-radius:50%;bac
     <nav class="nav-grupo">
       <div class="nav-grupo-titulo">Principal</div>
       <button class="nav-item ativo" data-view="dashboard"><span class="icone"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="9" rx="1"/><rect x="14" y="3" width="7" height="5" rx="1"/><rect x="14" y="12" width="7" height="9" rx="1"/><rect x="3" y="16" width="7" height="5" rx="1"/></svg></span> Painel</button>
-      <button class="nav-item" data-view="perfil"><span class="icone"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></span> Meu Perfil</button>
       <button class="nav-item" data-view="exposicao"><span class="icone"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></span> Exposição</button>
       <button class="nav-item" data-view="uv"><span class="icone"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/><circle cx="12" cy="12" r="4"/></svg></span> Índice UV</button>
     </nav>
@@ -446,48 +475,6 @@ input[type=range]::-moz-range-thumb{width:24px;height:24px;border-radius:50%;bac
         </div>
       </section>
 
-      <!-- PERFIL -->
-      <section class="view" id="view-perfil">
-        <div class="page-header"><h1>Meu Perfil</h1><p>Informe seus dados para cálculos personalizados.</p></div>
-
-        <div class="grid grid-2">
-          <div class="card">
-            <div class="card-titulo"><div class="icone"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>Dados pessoais</div>
-            <div class="campo"><label for="nome">Nome</label><input type="text" id="nome" placeholder="Digite seu nome" /></div>
-            <div class="campo"><label for="idade">Idade</label><input type="number" id="idade" placeholder="Ex.: 30" min="1" max="120" /></div>
-            <div class="campo"><label for="cidade">Cidade</label><input type="text" id="cidade" placeholder="Ex.: São Paulo, SP" /></div>
-            <div class="campo">
-              <label>Sensibilidade solar</label>
-              <select id="sensibilidade">
-                <option value="alta">Alta</option>
-                <option value="media" selected>Média</option>
-                <option value="baixa">Baixa</option>
-              </select>
-            </div>
-          </div>
-
-          <div class="card">
-            <div class="card-titulo"><div class="icone rosa"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="13.5" cy="6.5" r=".5"/><circle cx="17.5" cy="10.5" r=".5"/><circle cx="8.5" cy="7.5" r=".5"/><circle cx="6.5" cy="12.5" r=".5"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z"/></svg></div>Fototipo de pele</div>
-            <p class="subtitulo">Escolha o tom que mais se aproxima da sua pele (escala de Fitzpatrick).</p>
-            <div class="fototipo-grid" id="fototipoGrid">
-              <button class="fototipo-opcao" data-ft="1"><span class="cor" style="background:#FDE7D3"></span>I<br>Muito clara</button>
-              <button class="fototipo-opcao" data-ft="2"><span class="cor" style="background:#F5D0AE"></span>II<br>Clara</button>
-              <button class="fototipo-opcao sel" data-ft="3"><span class="cor" style="background:#E8B98C"></span>III<br>Média</button>
-              <button class="fototipo-opcao" data-ft="4"><span class="cor" style="background:#C68B59"></span>IV<br>Morena clara</button>
-              <button class="fototipo-opcao" data-ft="5"><span class="cor" style="background:#8B5A2B"></span>V<br>Morena escura</button>
-              <button class="fototipo-opcao" data-ft="6"><span class="cor" style="background:#4A2C17"></span>VI<br>Negra</button>
-            </div>
-            <div class="botoes-linha" style="margin-top:1.5rem">
-              <button class="btn btn-primario" id="btnSalvarPerfil">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><path d="M17 21v-8H7v8M7 3v5h8"/></svg>
-                Salvar perfil
-              </button>
-            </div>
-            <div class="alerta" id="alertaPerfil"></div>
-          </div>
-        </div>
-      </section>
-
       <!-- EXPOSIÇÃO -->
       <section class="view" id="view-exposicao">
         <div class="page-header"><h1>Registro de Exposição</h1><p>Cronometre seu tempo ao sol e registre a sessão.</p></div>
@@ -516,18 +503,18 @@ input[type=range]::-moz-range-thumb{width:24px;height:24px;border-radius:50%;bac
               </div>
             </div>
 
-            <div class="botoes-linha">
-              <button class="btn btn-verde" id="btnIniciar">
+            <div class="botoes-linha" style="display:flex;gap:.6rem;margin-top:1rem;flex-wrap:wrap">
+              <button class="btn btn-verde" id="btnIniciar" style="flex:1;min-width:140px">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><polygon points="6 3 20 12 6 21 6 3"/></svg>
                 Iniciar
               </button>
-              <button class="btn btn-perigo" id="btnParar" disabled>
+              <button class="btn btn-perigo" id="btnParar" disabled style="flex:1;min-width:140px">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="6" width="12" height="12" rx="1"/></svg>
                 Parar e salvar
               </button>
             </div>
-            <div class="botoes-linha">
-              <button class="btn btn-ghost btn-sm" id="btnResetar">
+            <div class="botoes-linha" style="display:flex;gap:.6rem;margin-top:1rem;flex-wrap:wrap">
+              <button class="btn btn-ghost btn-sm" id="btnResetar" style="flex:1">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>
                 Resetar cronômetro
               </button>
@@ -571,19 +558,19 @@ input[type=range]::-moz-range-thumb{width:24px;height:24px;border-radius:50%;bac
               <div id="localizacaoStatus" class="subtitulo" style="margin:0">Detecte automaticamente ou escolha no mapa</div>
             </div>
 
-            <div class="botoes-linha">
-              <button class="btn btn-azul" id="btnDetectarLocal">
+            <div style="display:flex;gap:.6rem;margin-top:1rem;flex-wrap:wrap">
+              <button class="btn btn-azul" id="btnDetectarLocal" style="flex:1;min-width:150px">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/><circle cx="12" cy="12" r="9"/></svg>
                 Detectar Localização
               </button>
-              <button class="btn btn-primario" id="btnAbrirMapa">
+              <button class="btn btn-primario" id="btnAbrirMapa" style="flex:1;min-width:150px">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
                 Escolher no Mapa
               </button>
             </div>
 
-            <div class="botoes-linha">
-              <button class="btn btn-ghost btn-sm" id="btnAtualizarUV">
+            <div style="display:flex;gap:.6rem;margin-top:1rem;flex-wrap:wrap">
+              <button class="btn btn-ghost btn-sm" id="btnAtualizarUV" style="flex:1">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>
                 Atualizar UV
               </button>
@@ -768,11 +755,9 @@ function emailJaExiste(email) {
   return carregarUsuarios().some(u => u.email.toLowerCase() === e);
 }
 
-let sessao = null; // { tipo:'admin'|'user', nome, email }
+let sessao = null;
 
-/* ============================================================
-   ALERTA LOGIN
-   ============================================================ */
+/* Alerta login */
 function mostrarAlertaLogin(msg, tipo = 'erro') {
   const el = $('alertaLogin');
   el.textContent = msg;
@@ -802,6 +787,16 @@ $('btnOlho').addEventListener('click', () => {
   }
 });
 
+/* Fototipo no cadastro */
+let fototipoSelReg = 3;
+document.querySelectorAll('#fototipoGridReg .fototipo-opcao').forEach(op => {
+  op.addEventListener('click', () => {
+    document.querySelectorAll('#fototipoGridReg .fototipo-opcao').forEach(o => o.classList.remove('sel'));
+    op.classList.add('sel');
+    fototipoSelReg = parseInt(op.dataset.ft);
+  });
+});
+
 /* Login */
 $('formEntrar').addEventListener('submit', (e) => {
   e.preventDefault();
@@ -822,8 +817,13 @@ $('formEntrar').addEventListener('submit', (e) => {
     }
     const usuarios = carregarUsuarios();
     const u = usuarios.find(x => x.email.toLowerCase() === email && x.senha === senha);
-    if (u) { sessao = { tipo: 'user', nome: u.nome, email: u.email }; entrarNoApp(); }
-    else {
+    if (u) {
+      sessao = { tipo: 'user', nome: u.nome, email: u.email, perfil: {
+        nome: u.nome, idade: u.idade, cidade: u.cidade,
+        sensibilidade: u.sensibilidade, fototipo: u.fototipo
+      }};
+      entrarNoApp();
+    } else {
       mostrarAlertaLogin('E-mail ou senha incorretos.', 'erro');
       btn.disabled = false;
       btn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4M10 17l5-5-5-5M13.8 12H3"/></svg> Entrar';
@@ -831,17 +831,22 @@ $('formEntrar').addEventListener('submit', (e) => {
   }, 600);
 });
 
-/* Registrar */
+/* Registrar — agora salva TODOS os dados do perfil */
 $('formRegistrar').addEventListener('submit', (e) => {
   e.preventDefault();
   const nome = $('regNome').value.trim();
   const email = $('regEmail').value.trim().toLowerCase();
+  const idade = parseInt($('regIdade').value) || null;
+  const cidade = $('regCidade').value.trim();
+  const sensibilidade = $('regSensibilidade').value;
   const senha = $('regSenha').value;
   const senha2 = $('regSenha2').value;
   const btn = $('btnRegistrar');
 
   if (!nome) { mostrarAlertaLogin('Informe seu nome.', 'erro'); return; }
   if (!email) { mostrarAlertaLogin('Informe um e-mail válido.', 'erro'); return; }
+  if (!idade || idade < 1 || idade > 120) { mostrarAlertaLogin('Informe uma idade válida (1 a 120).', 'erro'); return; }
+  if (!cidade) { mostrarAlertaLogin('Informe sua cidade.', 'erro'); return; }
   if (senha.length < 6) { mostrarAlertaLogin('A senha deve ter ao menos 6 caracteres.', 'erro'); return; }
   if (senha !== senha2) { mostrarAlertaLogin('As senhas não coincidem.', 'erro'); return; }
   if (emailJaExiste(email)) { mostrarAlertaLogin('Este e-mail já está cadastrado.', 'erro'); return; }
@@ -851,15 +856,30 @@ $('formRegistrar').addEventListener('submit', (e) => {
 
   setTimeout(() => {
     const usuarios = carregarUsuarios();
-    usuarios.push({ nome, email, senha, criadoEm: new Date().toISOString() });
+    usuarios.push({
+      nome, email, idade, cidade, sensibilidade,
+      fototipo: fototipoSelReg,
+      senha,
+      criadoEm: new Date().toISOString()
+    });
     salvarUsuarios(usuarios);
+
     mostrarAlertaLogin('Conta criada com sucesso! Faça login.', 'sucesso');
     $('loginEmail').value = email;
     $('loginSenha').value = '';
     $('loginSenha').focus();
     $('abaEntrar').click();
+
+    // Limpa formulário
     $('regNome').value = ''; $('regEmail').value = '';
+    $('regIdade').value = ''; $('regCidade').value = '';
+    $('regSensibilidade').value = 'media';
     $('regSenha').value = ''; $('regSenha2').value = '';
+    fototipoSelReg = 3;
+    document.querySelectorAll('#fototipoGridReg .fototipo-opcao').forEach(o => {
+      o.classList.toggle('sel', parseInt(o.dataset.ft) === 3);
+    });
+
     btn.disabled = false;
     btn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg> Criar minha conta';
   }, 600);
@@ -961,7 +981,7 @@ function formatarData(d = new Date()) {
 }
 
 /* ============================================================
-   PERSISTÊNCIA (IndexedDB + localStorage)
+   PERSISTÊNCIA
    ============================================================ */
 const DB_NAME = 'SunSafeDB'; const DB_VERSION = 1; let db = null;
 function abrirBanco() {
@@ -1002,7 +1022,6 @@ function normalizarRegistro(r) {
 async function carregar() {
   try {
     if (!db) await abrirBanco();
-    // migração simples do localStorage
     const configExistente = await dbGet('configuracao', 'principal');
     if (!configExistente) {
       try {
@@ -1025,10 +1044,14 @@ async function carregar() {
     const config = await dbGet('configuracao', 'principal');
     const exposicoes = await dbGetAll('exposicoes');
     if (config) {
-      estado.perfil = config.perfil || null;
-      estado.tema = config.tema || 'claro';
+      // Perfil vem do cadastro (sessão), mas cidade/localização podem ser salvos
       estado.localizacaoNome = config.localizacaoNome || null;
       estado.localizacao = config.localizacao || null;
+      if (config.tema) estado.tema = config.tema;
+    }
+    // O perfil é SEMPRE o da sessão (vem do cadastro do usuário)
+    if (sessao && sessao.perfil) {
+      estado.perfil = sessao.perfil;
     }
     estado.historico = exposicoes
       .sort((a, b) => new Date(a.data_exposicao) - new Date(b.data_exposicao))
@@ -1036,13 +1059,13 @@ async function carregar() {
     return true;
   } catch (e) {
     console.warn('Fallback localStorage', e);
+    if (sessao && sessao.perfil) estado.perfil = sessao.perfil;
     try {
       const raw = localStorage.getItem(chaveHistorico());
       if (raw) {
         const d = JSON.parse(raw);
-        estado.perfil = d.perfil || null;
         estado.historico = Array.isArray(d.historico) ? d.historico : [];
-        estado.tema = d.tema || 'claro';
+        if (d.tema) estado.tema = d.tema;
         estado.localizacaoNome = d.localizacaoNome || null;
         estado.localizacao = d.localizacao || null;
       }
@@ -1070,9 +1093,8 @@ async function salvarExposicaoNoBanco(registro) {
    ============================================================ */
 const titulos = {
   dashboard: ['Painel', 'Visão geral'],
-  perfil: ['Meu Perfil', 'Dados pessoais e fototipo'],
   exposicao: ['Exposição', 'Cronômetro e estimativa de Vitamina D'],
-  uv: ['Índice UV', 'Simulação do índice UV'],
+  uv: ['Índice UV', 'Detecção automática da sua localização'],
   historico: ['Histórico', 'Todas as sessões registradas'],
   relatorios: ['Relatórios', 'Gráficos e tabelas'],
   conquistas: ['Conquistas', 'Medalhas desbloqueadas'],
@@ -1103,7 +1125,6 @@ document.querySelectorAll('.nav-item[data-view]').forEach(btn => {
   btn.addEventListener('click', () => navegar(btn.dataset.view));
 });
 $('btnMenu').addEventListener('click', () => $('sidebar').classList.toggle('aberta'));
-$('usuarioChip').addEventListener('click', () => navegar('perfil'));
 
 /* ============================================================
    TEMA
@@ -1119,60 +1140,6 @@ $('btnTema').addEventListener('click', async () => {
   aplicarTema();
   await salvar();
 });
-
-/* ============================================================
-   PERFIL
-   ============================================================ */
-let fototipoSel = 3;
-document.querySelectorAll('.fototipo-opcao').forEach(op => {
-  op.addEventListener('click', () => {
-    document.querySelectorAll('.fototipo-opcao').forEach(o => o.classList.remove('sel'));
-    op.classList.add('sel');
-    fototipoSel = parseInt(op.dataset.ft);
-  });
-});
-
-$('btnSalvarPerfil').addEventListener('click', async () => {
-  const nome = $('nome').value.trim();
-  const idade = parseInt($('idade').value) || null;
-  const cidade = $('cidade').value.trim();
-  const sensibilidade = $('sensibilidade').value;
-
-  if (!nome) { toast('Informe seu nome para salvar o perfil.', 'erro'); return; }
-  if (!idade || idade < 1 || idade > 120) { toast('Informe uma idade válida.', 'erro'); return; }
-
-  estado.perfil = { nome, idade, cidade, sensibilidade, fototipo: fototipoSel };
-  await salvar();
-  atualizarInterfaceUsuario();
-  atualizarDashboard();
-  atualizarInfoUV();
-  toast('Perfil salvo com sucesso!', 'sucesso');
-  mostrarAlerta('alertaPerfil', 'Perfil atualizado com sucesso.', 'baixo');
-});
-
-function mostrarAlerta(id, texto, nivel) {
-  const el = $(id); if (!el) return;
-  el.textContent = texto;
-  el.className = 'alerta visivel ' + nivel;
-  setTimeout(() => el.classList.remove('visivel'), 4000);
-}
-
-function atualizarInterfaceUsuario() {
-  if (estado.perfil) {
-    $('nome').value = estado.perfil.nome;
-    $('idade').value = estado.perfil.idade || '';
-    $('cidade').value = estado.perfil.cidade || '';
-    $('sensibilidade').value = estado.perfil.sensibilidade;
-    fototipoSel = estado.perfil.fototipo;
-    document.querySelectorAll('.fototipo-opcao').forEach(o => {
-      o.classList.toggle('sel', parseInt(o.dataset.ft) === fototipoSel);
-    });
-    if (sessao) {
-      $('nomeUser').textContent = sessao.nome;
-      $('avatarUser').textContent = sessao.nome.charAt(0).toUpperCase();
-    }
-  }
-}
 
 /* ============================================================
    CÁLCULOS
@@ -1256,11 +1223,6 @@ async function buscarNomeCidade(lat, lon) {
         <div class="pais">${bandeira ? `<span class="bandeira">${bandeira}</span>` : ''} ${pais}</div>
         <div class="coords">Lat ${lat.toFixed(4)} · Lon ${lon.toFixed(4)}</div>
       </div>`;
-    if (estado.perfil && !estado.perfil.cidade) {
-      estado.perfil.cidade = `${cidade}${uf ? ', ' + uf : ''}`;
-      salvar();
-      $('cidade').value = estado.perfil.cidade;
-    }
   } catch (e) {
     console.warn('Reverse geocoding falhou', e);
     statusEl.innerHTML = `<div class="cidade">Localização detectada</div><div class="coords">Lat ${lat.toFixed(4)} · Lon ${lon.toFixed(4)}</div>`;
@@ -1340,6 +1302,13 @@ function atualizarGraficoUV(previsao) {
 function atualizarInfoUV() {
   const uv = estado.uvTempoReal ? Math.round(estado.uvTempoReal.atual) : estado.uvAtual;
   atualizarInfoUVTempoReal(uv);
+}
+
+function mostrarAlerta(id, texto, nivel) {
+  const el = $(id); if (!el) return;
+  el.textContent = texto;
+  el.className = 'alerta visivel ' + nivel;
+  setTimeout(() => el.classList.remove('visivel'), 4000);
 }
 
 /* ============================================================
@@ -1438,7 +1407,7 @@ function resetarCrono() {
 
 $('btnIniciar').addEventListener('click', () => {
   if (estado.cronoAtivo) return;
-  if (!estado.perfil) { toast('Cadastre seu perfil antes de iniciar.', 'erro'); navegar('perfil'); return; }
+  if (!estado.perfil) { toast('Cadastre-se primeiro.', 'erro'); return; }
   estado.cronoInicio = Date.now() - (estado.cronoSegundos * 1000);
   estado.cronoAtivo = true;
   estado.cronoInterval = setInterval(() => {
@@ -1655,8 +1624,11 @@ function atualizarListaUsuarios() {
   container.innerHTML = lista.map(u => `
     <div class="admin-user">
       <div class="av" style="background:var(--grad-ceu)">${u.nome.charAt(0).toUpperCase()}</div>
-      <div class="dados"><strong>${u.nome}</strong><span>${u.email}</span></div>
-      <span class="tag tag-user">Usuário</span>
+      <div class="dados">
+        <strong>${u.nome}</strong>
+        <span>${u.email} · ${u.idade || '?'} anos · ${u.cidade || '—'}</span>
+      </div>
+      <span class="tag tag-user">Tipo ${u.fototipo || '—'}</span>
     </div>
   `).join('');
 }
@@ -1667,7 +1639,6 @@ function atualizarListaUsuarios() {
 async function initApp() {
   await carregar();
   aplicarTema();
-  atualizarInterfaceUsuario();
   atualizarDashboard();
   atualizarHistorico();
   atualizarInfoUV();
@@ -1680,11 +1651,7 @@ async function initApp() {
     buscarUV(estado.localizacao.latitude, estado.localizacao.longitude);
   }
 
-  if (!estado.perfil) {
-    setTimeout(() => toast('Bem-vindo ao SunSafe! Cadastre seu perfil para começar.', 'info'), 600);
-  } else {
-    toast(`Bem-vindo, ${sessao.nome.split(' ')[0]}!`, 'sucesso');
-  }
+  toast(`Bem-vindo, ${sessao.nome.split(' ')[0]}!`, 'sucesso');
 }
 
 /* Loader style */
